@@ -1,0 +1,31 @@
+{
+  "name": "js-data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch",
+    "test:ui": "majestic"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergey-shulyak/js-data-structures.git"
+  },
+  "author": "Sergey Shulyak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergey-shulyak/js-data-structures/issues"
+  },
+  "homepage": "https://github.com/sergey-shulyak/js-data-structures#readme",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^23.6.0",
+    "majestic": "^1.1.0",
+    "prettier": "^1.15.2"
+  },
+  "dependencies": {
+    "intl": "^1.2.5",
+    "intl-locales-supported": "^1.0.0"
+  }
+}
