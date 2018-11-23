@@ -19,7 +19,7 @@ function binarySum(binaryA, binaryB) {
  * Функция должна вернуть больший из балансов в виде строки формата "n$", где n - дробное число округленное до 2 знаками после запятой
  */
 function maxRoundedBalance(...balances) {
-  return Math.max(...balances.map(n => parseFloat(n).toFixed(2))) + "$";
+  return Math.max(...balances).toFixed(2) + "$";
 }
 
 module.exports = {
