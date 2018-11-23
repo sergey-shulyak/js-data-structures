@@ -20,6 +20,7 @@ function isExpressionValid(expression) {
     if (expression[i] === "(" || expression[i] === "{" || expression[i] === "[")
       bracesStack.push(expression[i]);
   }
+
   let firstClosingPosition = Math.min(
     expression.indexOf("}"),
     expression.indexOf(")"),
