@@ -45,52 +45,52 @@ describe("Tasks for objects", () => {
 
       expect(result).toBe(55);
     });
+  });
 
-    describe("isEmpty", () => {
-      it("return true for empty object", () => {
-        const testObj = {};
+  describe("isEmpty", () => {
+    it("return true for empty object", () => {
+      const testObj = {};
 
-        expect(tasks.isEmpty(testObj)).toBe(true);
-      });
-
-      it("return false for non-empty object", () => {
-        const testObj = {
-          testProp: 42
-        };
-
-        expect(tasks.isEmpty(testObj)).toBe(false);
-      });
+      expect(tasks.isEmpty(testObj)).toBe(true);
     });
 
-    describe("numericPropsSum", () => {
-      it("returns 6 for corresponding object", () => {
-        const obj = {
-          one: "one",
-          two: 2,
-          three: "three",
-          four: 4,
-          five: "five"
-        };
+    it("return false for non-empty object", () => {
+      const testObj = {
+        testProp: 42
+      };
 
-        expect(tasks.numericPropsSum(obj)).toBe(6);
-      });
+      expect(tasks.isEmpty(testObj)).toBe(false);
     });
+  });
 
-    describe("clone", () => {
-      it("creates independent copy", () => {
-        const obj = {
-          testProp1: "one",
-          testProp2: "two",
-          testProp3: "three"
-        };
+  describe("numericPropsSum", () => {
+    it("returns 6 for corresponding object", () => {
+      const obj = {
+        one: "one",
+        two: 2,
+        three: "three",
+        four: 4,
+        five: "five"
+      };
 
-        const objCopy = tasks.clone(obj);
-        objCopy.testProp1 = "changed";
-        objCopy.newProp = "newProp";
+      expect(tasks.numericPropsSum(obj)).toBe(6);
+    });
+  });
 
-        expect(obj).not.toHaveProperty("newProp");
-        expect(obj).toHaveProperty("testProp1", "one");
-      });
+  describe("clone", () => {
+    it("creates independent copy", () => {
+      const obj = {
+        testProp1: "one",
+        testProp2: "two",
+        testProp3: "three"
+      };
+
+      const objCopy = tasks.clone(obj);
+      objCopy.testProp1 = "changed";
+      objCopy.newProp = "newProp";
+
+      expect(obj).not.toHaveProperty("newProp");
+      expect(obj).toHaveProperty("testProp1", "one");
     });
   });
 });
