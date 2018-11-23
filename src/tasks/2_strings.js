@@ -3,7 +3,7 @@
  * Функция должна вернуть строку в формате "<id><tab>|<name>|<tab><diameter>"
  */
 function constructPlanetInfoString(id, name, diameter) {
-  return (id + \t + "|" + name + \t + "|" + diameter);
+  return id + "\t" + "|" + name + "|" + "\t" + diameter;
 }
 
 /**
@@ -12,11 +12,11 @@ function constructPlanetInfoString(id, name, diameter) {
  * Функция не должна быть чувствительна к регистру (если слово в списке спама "новинка", а в тексте "НоВиНкА" - то это спам)
  */
 function isSpam(text, spamWords) {
-  var text = text.toLowerCase();
-  for (var i=0; i<spamWords.length; i++){
-    if ( text.indexOf(spamWords[i]) ) return true;
+  let lowerCaseText = text.toLowerCase();
+  for (let i = 0; i < spamWords.length; i++) {
+    if (lowerCaseText.indexOf(spamWords[i].toLowerCase()) >= 0) return true;
   }
-  return false();
+  return false;
 }
 
 /**
@@ -24,7 +24,11 @@ function isSpam(text, spamWords) {
  * Функция должна вернуть текст с подставленным значением (interpolateString("Hello {{username}}", "Jason") => "Hello Jason")
  */
 function interpolateString(text, value) {
-  return text.substring(0, text.indexOf("{{")) + value + text.substring(text.lastIndexOf("}}"));
+  return (
+    text.substring(0, text.indexOf("{{")) +
+    value +
+    text.substring(text.lastIndexOf("}}") + 2)
+  );
 }
 
 /**
