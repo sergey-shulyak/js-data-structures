@@ -63,7 +63,13 @@ function getCapitalizedNamesString(names) {
  * Функция принимает массив объектов вида { id: 1, name: "Иван", age: 42 }
  * Функция должна вернуть массив таких же объектов, отсортированных по именам (в алфавитном порядке). НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
-function sortByName(users) {}
+function sortByName(users) {
+  for (keys in users) {
+
+  }
+  // mass = mas.sort(compareNumeric);
+  return users;
+}
 
 /**
  * Функция принимает массив объектов вида { id: 1, name: "Иван", age: 42 }
@@ -80,7 +86,13 @@ function getEligibleUserNames(users) {
  * Функция принимает массив покупок вида { name: "Морковь", amount: 3, price: 2.50 }
  * Функция должна вернуть сумму всех покупок. НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
-function calculateCart(items) {}
+function calculateCart(items) {
+  var sum = 0;
+  for (keys in items) {
+    sum += items.price;
+  };
+  return sum;
+}
 
 /**
  * Функция принимает массив пользователей вида { id: 1, name: "Иван", access: 3 }
