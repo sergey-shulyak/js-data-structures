@@ -40,11 +40,7 @@ function numericPropsSum(obj) {
  * Функция должна вернуть независимую копию объекта
  */
 function clone(obj) {
-  let newObject = {};
-  for (let key in obj) {
-    newObject[key] = obj[key];
-  }
-  return newObject;
+  return { ...obj };
 }
 
 module.exports = {
