@@ -3,11 +3,8 @@
  * Функция должна "переименовать" свойство в полученном объекте
  */
 function renameProperty(obj, propName, newName) {
-  if (obj.hasOwnProperty(propName)) {
-    obj[newName] = obj[propName];
-    delete obj[propName];
-  }
-  return obj;
+  obj[newName] = obj[propName];
+  delete obj[propName];
 }
 
 /**
@@ -43,7 +40,8 @@ function numericPropsSum(obj) {
  * Функция должна вернуть независимую копию объекта
  */
 function clone(obj) {
-  return Object.assign({}, obj);
+  //return Object.assign({}, obj);
+  return { ...obj };
 }
 
 module.exports = {
