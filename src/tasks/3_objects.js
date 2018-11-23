@@ -28,7 +28,13 @@ function isEmpty(obj) {
  * Функция должна вернуть сумму значений свойств, где значение - число
  */
 function numericPropsSum(obj) {
-  return Object.values(obj).length + 1;
+  let sum = 0;
+  Object.values(obj).forEach(element => {
+    if (typeof element == "number") {
+      sum += element;
+    }
+  });
+  return sum;
 }
 
 /**
