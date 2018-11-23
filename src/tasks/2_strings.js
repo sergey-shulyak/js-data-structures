@@ -12,21 +12,35 @@ function constructPlanetInfoString(id, name, diameter) {
  * Функция не должна быть чувствительна к регистру (если слово в списке спама "новинка", а в тексте "НоВиНкА" - то это спам)
  */
 function isSpam(text, spamWords) {
-  text = text.toLowerCase();
-  return text.indexOf(spamWords) != -1;
+  let lowerText = text.toLowerCase();
+  for (let i = 0; i < spamWords.length; i++) {
+    if (lowerText.indexOf(spamWords[i]) != -1) return true;
+  }
+  return false;
 }
 
 /**
  * Функция принимает текст, и значение которое нужно подставить между {{ и }}
  * Функция должна вернуть текст с подставленным значением (interpolateString("Hello {{username}}", "Jason") => "Hello Jason")
  */
-function interpolateString(text, value) {}
-
+function interpolateString(text, value) {
+  let startStr = text.slice(0, text.indexOf("{"));
+  let endStr = text.slice(text.lastIndexOf("}") + 1);
+  return startStr + value + endStr;
+}
 /**
  * Функция принимает массив чисел, которые представляют собой коды символов
  * Функция должна вернуть текст, составленный из кодов символов. [1076, 1091, 1073] => "дуб"
  */
-function fromCharCodes(charCodes) {}
+function fromCharCodes(charCodes) {
+  let result = "";
+
+  for (let i = 0; i < charCodes.length; i++) {
+    result += String.fromCharCode(charCodes[i]);
+  }
+
+  return result;
+}
 
 module.exports = {
   constructPlanetInfoString,
