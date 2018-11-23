@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "test:ui": "majestic"
+    "test:ui": "majestic",
+    "test:single": "jest --watch -t"
   },
   "repository": {
     "type": "git",
