@@ -2,13 +2,20 @@
  * Функция принимает объект, имя свойства которое нужно изменить и новое имя свойства
  * Функция должна "переименовать" свойство в полученном объекте
  */
-function renameProperty(obj, propName, newName) {}
+function renameProperty(obj, propName, newName) {
+  obj[propName] = obj[newName];
+}
 
 /**
  * Функция принимает объект
  * Функция должна вернуть количество свойств объекта (числом)
  */
-function countKeys(obj) {}
+function countKeys(obj) {
+  let count = 0;
+  for (let key in obj) {
+    count++;
+  }
+}
 
 /**
  * Функция принимает объект
