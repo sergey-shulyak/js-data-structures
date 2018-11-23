@@ -23,6 +23,7 @@ function prettyPrintEntries(userMarksMap) {
     let Str = "";
     Str += item[0].id + " " + item[0].name + ": ";
     Str += item[1].reduce((a, b) => a + b) + " балл(ов)";
+
     console.log(Str);
     users.push(Str);
   }
