@@ -39,7 +39,7 @@ describe("Tasks for dates", () => {
     });
   });
 
-  describe("formatDate", async () => {
+  describe("benchmark", async () => {
     const delayedFunc = delay => async () =>
       await new Promise(resolve => setTimeout(resolve, delay));
 
