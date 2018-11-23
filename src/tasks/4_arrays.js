@@ -2,38 +2,100 @@
  * Функция принимает массив
  * Функция должна вернуть "настоящюю длинну массива" [1,2,3,4,5] => 5 | [1,2,3,4, ... пустота... 10] => 5
  */
-function trueLength(array) {}
+function trueLength(array) {
+  let resArr = array.filter(item => item !== undefined);
+
+  return resArr.length;
+}
 
 /**
  * Функция принимает строку, содержащую последовательность круглых, квадратных или фигурных скобок - "let obj = { numArray: [ ((1 + 2) * 5) + (42).toString() ] }"
  * Функция должна вернуть true если все скобки закрыты в правильном порядке или false в противном случае
  */
-function isExpressionValid(expression) {}
+function isExpressionValid(expression) {
+  let keys = [];
+
+  for (let i = 0; i < expression.length; i++) {
+    if (
+      expression[i] === "(" ||
+      expression[i] === "[" ||
+      expression[i] === "{"
+    ) {
+      keys.push(expression[i]);
+    }
+  }
+
+  let indexClose = Math.min(
+    expression.indexOf("}"),
+    expression.indexOf(")"),
+    expression.indexOf("]")
+  );
+
+  for (let i = indexClose; i < expression.length; i++) {
+    if (keys[keys.length - 1] === "{" && expression[i] === "}") {
+      keys.pop();
+    }
+
+    if (keys[keys.length - 1] === "(" && expression[i] === ")") {
+      keys.pop();
+    }
+
+    if (keys[keys.length - 1] === "[" && expression[i] === "]") {
+      keys.pop();
+    }
+  }
+
+  return keys.length === 0;
+}
 
 /**
  * Функция принимает массив имен. Имена могут быть в любом виде: пЕтя, Артём, катя, МаШа
  * Функция должна вернуть строку с нормализованными именами, разделёнными запятой и пробелом: "Петя, Артём, Катя, Маша"
  */
-function getCapitalizedNamesString(names) {}
+function getCapitalizedNamesString(names) {
+  let trueNames = names.map(
+    elem => elem[0].toUpperCase() + elem.slice(1).toLowerCase()
+  );
+
+  return trueNames.join(", ");
+}
 
 /**
  * Функция принимает массив объектов вида { id: 1, name: "Иван", age: 42 }
  * Функция должна вернуть массив таких же объектов, отсортированных по именам (в алфавитном порядке). НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
-function sortByName(users) {}
+function sortByName(users) {
+  users.sort((firstObj, secondObj) => {
+    return firstObj.name > secondObj.name ? 1 : -1;
+  });
+
+  return users;
+}
 
 /**
  * Функция принимает массив объектов вида { id: 1, name: "Иван", age: 42 }
  * Функция должна вернуть массив имён пользователей которым исполнилось 18 лет. НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
 
  */
-function getEligibleUserNames(users) {}
+function getEligibleUserNames(users) {
+  let res = [];
+
+  users.forEach(user => {
+    if (user.age >= 18) {
+      res.push(user.name);
+    }
+  });
+
+  return res;
+}
 
 /**
  * Функция принимает массив покупок вида { name: "Морковь", amount: 3, price: 2.50 }
  * Функция должна вернуть сумму всех покупок. НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
-function calculateCart(items) {}
+function calculateCart(items) {
+  return items.reduce((summ, item) => (summ += item.amount * item.price), 0);
+}
 
 /**
  * Функция принимает массив пользователей вида { id: 1, name: "Иван", access: 3 }
@@ -42,7 +104,11 @@ function calculateCart(items) {}
  * Функция должна вернуть true если у всех пользователей есть доступ на запись или false в противном случае
  * 11 10
  */
-function isAllPermittedToWrite(users) {}
+function isAllPermittedToWrite(users) {
+  return users.every(
+    user => user.access.toString(2) === "10" || user.access.toString(2) === "11"
+  );
+}
 
 module.exports = {
   trueLength,
