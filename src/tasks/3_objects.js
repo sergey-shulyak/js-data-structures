@@ -24,7 +24,7 @@ function countKeys(obj) {
  * Функция должна вернуть true если в объекте нет свойств или false в противном случае
  */
 function isEmpty(obj) {
-  return !Object.entries(obj).length;
+  return !Object.keys(obj).length;
 }
 
 /**

@@ -33,6 +33,12 @@ describe("Tasks for arrays", () => {
     });
   });
 
+  it("return false for only closing expression", () => {
+    const expression = "let obj =) numArray: [ (1 + 2) * 5 + (42.toString() }";
+
+    expect(tasks.isExpressionValid(expression)).toBe(false);
+  });
+
   describe("getCapitalizedNamesString", () => {
     it("capitalizes incorrect names and returns joined string", () => {
       const names = ["пЕтя", "Артём", "катя", "МаШа"];
