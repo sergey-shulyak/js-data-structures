@@ -3,8 +3,7 @@
  * Функция должна вернуть массив чисел без дубликатов
  */
 function uniqueValues(numbers) {
-  let set = new Set(numbers);
-  return Array.from(set);
+  return Array.from(new Set(numbers));
 }
 
 /**
@@ -13,8 +12,10 @@ function uniqueValues(numbers) {
  * [1, 2, 3, 4, 5] и [1, 3, 7, 10] => [2, 4, 5, 7, 10]
  */
 function getNotIntersectingElements(setA, setB) {
-  let set = setA;
-
+  let set = new Set();
+  for (let el of setA) {
+    set.add(el);
+  }
   for (let el of setB) {
     set.has(el) ? set.delete(el) : set.add(el);
   }
