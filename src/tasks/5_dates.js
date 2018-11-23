@@ -6,20 +6,11 @@ require("../polyfills/intl");
  * Используйте Intl: https://learn.javascript.ru/intl
  */
 function timeTravel(dateString) {
-  let dateArr = dateString.split("/");
-  let date = new Date(dateArr[2] - 10, dateArr[1], dateArr[0]);
-  let formatter = new Intl.DateTimeFormat("ru", { day: "numeric" });
-  let days = new Map([
-    ["0", "воскресенье"],
-    ["1", "понедельник"],
-    ["2", "вторник"],
-    ["3", "среда"],
-    ["4", "четверг"],
-    ["5", "пятница"],
-    ["6", "суббота"]
-  ]);
+  let date = new Date(dateString);
+  date.setFullYear(date.getFullYear() - 10);
+  let formatter = new Intl.DateTimeFormat("ru", { weekday: "long" });
 
-  return days.get(formatter.format(date));
+  return formatter.format(date);
 }
 
 /**
