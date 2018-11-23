@@ -21,13 +21,13 @@ function isExpressionValid(expression) {
 
   let stack = [];
 
-  for (var i = 0; i < expression.length; ++i) {
-    var ch = expression[i];
-    var ind = br.indexOf(ch);
+  for (let i = 0; i < expression.length; ++i) {
+    let ch = expression[i];
+    let ind = br.indexOf(ch);
     if (ind >= 0) {
       if (ind & 1) {
         if (!stack.length) return false;
-        var last_br = stack.pop();
+        let last_br = stack.pop();
         if (last_br != br[ind - 1]) return false;
       } else {
         stack.push(ch);
