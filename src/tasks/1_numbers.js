@@ -11,7 +11,7 @@ function parseCssProp(cssValue) {
  * Функция должна вернуть сумму этих чисел в виде строки с шестнадцатеричным числом ("b")
  */
 function binarySum(binaryA, binaryB) {
-  return (parseInt(binaryA, 2) + parseInt(binaryB, 2)).toString(16);
+  return (Number(binaryA) + Number(binaryB)).toString(16);
 }
 
 /**
