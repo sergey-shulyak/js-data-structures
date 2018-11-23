@@ -2,7 +2,14 @@
  * Функция принимает массив чисел
  * Функция должна вернуть массив чисел без дубликатов
  */
-function uniqueValues(numbers) {}
+function uniqueValues(numbers) {
+  let set = new Set();
+  for (let el of numbers) {
+    set.add(el);
+  }
+
+  return Array.from(set);
+}
 
 /**
  * Функция принимает 2 множества (Set)
