@@ -17,11 +17,14 @@ function uniqueValues(numbers) {
  */
 function getNotIntersectingElements(setA, setB) {
   let setC = new Set();
-  setA.forEach(element => {
-    setC.add(element);
+  setA.forEach(elA => setC.add(elA));
+  setB.forEach(elem => {
+    if (setC.has(elem)) {
+      setC.delete(elem);
+    } else {
+      setC.add(elem);
+    }
   });
-  set.delete(item);
-
   return setC;
 }
 
