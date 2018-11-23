@@ -24,7 +24,11 @@ function isSpam(text, spamWords) {
  * Функция должна вернуть текст с подставленным значением (interpolateString("Hello {{username}}", "Jason") => "Hello Jason")
  */
 function interpolateString(text, value) {
-  return `${text.substr(0, text.indexOf("{{"))}${value}${text.substring(text.indexOf("}}") + 2)}`.trim();
+  return (
+    text.substr(0, text.indexOf("{{")) +
+    value +
+    text.substring(text.indexOf("}}") + 2)
+  ).trim();
 }
 
 /**
