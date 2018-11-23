@@ -28,7 +28,7 @@ function isExpressionValid(expression) {
       }
     }
   }
-  return true;
+  return stack.length === 0;
 }
 
 /**
