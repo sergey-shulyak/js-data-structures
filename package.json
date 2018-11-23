@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:single": "jest --watch -t",
     "test": "jest --watch",
     "test:ui": "majestic"
   },
