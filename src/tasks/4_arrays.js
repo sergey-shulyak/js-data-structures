@@ -3,7 +3,7 @@
  * Функция должна вернуть "настоящюю длинну массива" [1,2,3,4,5] => 5 | [1,2,3,4, ... пустота... 10] => 5
  */
 function trueLength(array) {
-  return array.filter(x => typeof x !== "null").length;
+  return array.filter(x => x).length;
 }
 
 /**
