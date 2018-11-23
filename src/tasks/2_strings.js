@@ -26,9 +26,9 @@ function isSpam(text, spamWords) {
  * Функция должна вернуть текст с подставленным значением (interpolateString("Hello {{username}}", "Jason") => "Hello Jason")
  */
 function interpolateString(text, value) {
-  let name = value.substr(0, 5);
-  console.log(name);
-  return text + value;
+  let start = text.slice(0, text.indexOf("{"));
+  let end = text.slice(text.lastIndexOf("}") + 1);
+  return start + value + end;
 }
 
 /**
@@ -36,7 +36,11 @@ function interpolateString(text, value) {
  * Функция должна вернуть текст, составленный из кодов символов. [1076, 1091, 1073] => "дуб"
  */
 function fromCharCodes(charCodes) {
-  return toString(charCodes);
+  let result = "";
+  for (let i = 0; i < charCodes.length; i++) {
+    result += String.fromCharCode(charCodes[i]);
+  }
+  return result;
 }
 
 module.exports = {
