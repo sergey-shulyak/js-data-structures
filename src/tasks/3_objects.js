@@ -5,8 +5,6 @@
 function renameProperty(obj, propName, newName) {
   obj[newName] = obj[propName];
   delete obj[propName];
-  return obj[newName];
-
 }
 
 /**
@@ -18,6 +16,7 @@ function countKeys(obj) {
   for (let key in obj) {
     countOfProps++;
   }
+  return countOfProps;
 }
 
 /**
