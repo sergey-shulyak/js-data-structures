@@ -47,10 +47,17 @@ function formatDate(millis) {
  */
 async function benchmark(f) {
   // код
-
+  let date = Date.now();
   await f(); // Не меняйте эту строку. Это вызов переданной функции с ожиданием выполнения.
-
   // код
+  date = Date.now() - date;
+  if (date < 10) {
+    return "fast";
+  } else if (date < 500) {
+    return "normal";
+  } else {
+    return "slow";
+  }
 }
 
 module.exports = {
