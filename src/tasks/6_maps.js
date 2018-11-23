@@ -3,7 +3,17 @@
  * Функция должна вернуть Map, содержащую количество каждой буквы: { a => 3, m => 6, ... }
  * Порядок пар не важен. Буквы А и а считать одной буквой.
  */
-function countLetters(text) {}
+function countLetters(text) {
+  text.toLowerCase();
+  let map = new Map();
+
+  // return text.forEach((value, key) => `${key} => ${value}`);
+
+  // return map.get(text);
+  // for (let amound of map.keys()) {
+  //   return amound;
+  // }
+}
 
 /**
  * Функция принимает Map с парами вида { id: 1, name: "Петя" } => [8, 9, 8, ...]

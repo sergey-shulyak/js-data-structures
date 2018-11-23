@@ -19,24 +19,6 @@ function isSpam(text, spamWords) {
   }
 
   return false;
-
-  // for (let i = 0; i < spamWords.length - 1; i++) {
-  //   let current = spamWords[i].toLowerCase();
-
-  //   console.log
-
-  //   if (text.toLowerCase().indexOf(current) !== -1) {
-  //     return true;
-  //   }
-  // }
-
-  // return false;
-  // let spam = text.indexOf(spamWords.toLowerCase());
-  // if (spam === -1) {
-  //   return false;
-  // } else {
-  //   return true;
-  // }
 }
 
 /**
@@ -53,7 +35,9 @@ function interpolateString(text, value) {
  * Функция принимает массив чисел, которые представляют собой коды символов
  * Функция должна вернуть текст, составленный из кодов символов. [1076, 1091, 1073] => "дуб"
  */
-function fromCharCodes(charCodes) {}
+function fromCharCodes(charCodes) {
+  return toString(charCodes);
+}
 
 module.exports = {
   constructPlanetInfoString,

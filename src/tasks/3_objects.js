@@ -5,7 +5,6 @@
 function renameProperty(obj, propName, newName) {
   obj[newName] = obj[propName];
   delete obj[propName];
-  return obj;
 }
 
 /**
