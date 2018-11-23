@@ -7,8 +7,9 @@ function countLetters(text) {
   let str = text.toLowerCase();
   let res = new Map();
   for (let letter of str) {
-    if (letter === " ") continue;
-    res.set(letter, res.has(letter) ? res.get(letter) + 1 : 1);
+    if (letter !== " ") {
+      res.set(letter, res.has(letter) ? res.get(letter) + 1 : 1);
+    }
   }
   return res;
 }
