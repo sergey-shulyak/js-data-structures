@@ -5,8 +5,8 @@
  */
 function countLetters(text) {
   let loverStr = text.toLowerCase().split("");
+  let map = new Map();
 
-  var map = new Map();
   loverStr.forEach(element => {
     if (element !== " ") {
       map.set(element, map.has(element) ? map.get(element) + 1 : 1);
