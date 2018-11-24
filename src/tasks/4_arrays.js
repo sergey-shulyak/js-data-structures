@@ -10,7 +10,19 @@ function trueLength(array) {
  * Функция принимает строку, содержащую последовательность круглых, квадратных или фигурных скобок - "let obj = { numArray: [ ((1 + 2) * 5) + (42).toString() ] }"
  * Функция должна вернуть true если все скобки закрыты в правильном порядке или false в противном случае
  */
-function isExpressionValid(expression) {}
+function isExpressionValid(expression) {
+  let res = 0;
+  for (let i = 0; i < expression.length; i++) {
+    if (expression[i] === '{') {
+      res += 1;
+    } else if (expression[i] === '}') {
+      res -= 1;
+    }
+    if (res < 0) { return false; }
+  }
+  if (res > 0) { return false; }
+  return true;
+}
 
 /**
  * Функция принимает массив имен. Имена могут быть в любом виде: пЕтя, Артём, катя, МаШа
