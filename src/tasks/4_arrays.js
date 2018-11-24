@@ -10,35 +10,35 @@ function trueLength(array) {
  * Функция принимает строку, содержащую последовательность круглых, квадратных или фигурных скобок - "let obj = { numArray: [ ((1 + 2) * 5) + (42).toString() ] }"
  * Функция должна вернуть true если все скобки закрыты в правильном порядке или false в противном случае
  */
-function isExpressionValid(expression) {}
-/*
+function isExpressionValid(expression) {
   let brackets = [];
   let elements = expression.split("");
   elements.forEach(value => {
     switch (value) {
       case "(":
-        brackets.push(value);
-        break;
       case "{":
+      case "[":
         brackets.push(value);
         break;
       case ")":
-        if (brackets[-1] !== value) {
+        if (brackets.pop() !== value) {
           return false;
         }
-        brackets.pop(value);
         break;
       case "}":
-        if (brackets[-1] !== value) {
+        if (brackets.pop() !== value) {
           return false;
         }
-        brackets.pop(value);
+        break;
+      case "]":
+        if (brackets.pop() !== value) {
+          return false;
+        }
         break;
     }
   });
-  return brackets.length > 0;
+  return brackets.length == 0;
 }
-*/
 /**
  * Функция принимает массив имен. Имена могут быть в любом виде: пЕтя, Артём, катя, МаШа
  * Функция должна вернуть строку с нормализованными именами, разделёнными запятой и пробелом: "Петя, Артём, Катя, Маша"
