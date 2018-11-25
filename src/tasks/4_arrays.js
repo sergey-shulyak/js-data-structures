@@ -85,7 +85,7 @@ function calculateCart(items) {
  * 11 10
  */
 function isAllPermittedToWrite(users) {
-  return users.every(obj => obj.access >> 1);
+  return users.every(obj => ((obj.access >> 1)==1));
 }
 
 module.exports = {

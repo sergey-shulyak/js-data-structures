@@ -3,7 +3,7 @@
  * Функция должна вернуть строку в формате "<id><tab>|<name>|<tab><diameter>"
  */
 function constructPlanetInfoString(id, name, diameter) {
-  return id + "\t" + "|" + name + "|" + "\t" + diameter;
+  return `${id}\t|${name}|\t${diameter}`;
 }
 
 /**

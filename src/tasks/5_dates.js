@@ -5,14 +5,32 @@ require("../polyfills/intl");
  * Функция должна вернуть день недели (например "вторник"), который был ровно 10 лет назад
  * Используйте Intl: https://learn.javascript.ru/intl
  */
-function timeTravel(dateString) {}
+function timeTravel(dateString) {
+  let d = new Date(dateString);
+  d.setFullYear( d.getFullYear()-10 );
+  let formatter = new Intl.DateTimeFormat("ru", {
+    weekday: "long"
+  });
+  return( formatter.format(d) );
+}
 
 /**
  * Функция принимает дату - число миллисекунд, прошедших с 1 января 1970 года
  * Функция должна вернуть строку в формате "ср, 21 нояб. 2018 г., 18:48"
  * Используйте Intl: https://learn.javascript.ru/intl
  */
-function formatDate(millis) {}
+function formatDate(millis) {
+  let d = new Date(millis);
+  let formatter = new Intl.DateTimeFormat("ru", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "numeric"
+  });
+  return( formatter.format(d) );
+}
 
 /**
  * Функция принимает функцию для которой нужно провести бенчмарк
@@ -22,11 +40,10 @@ function formatDate(millis) {}
  * "slow" - если функция выполнялась более 500 мс
  */
 async function benchmark(f) {
-  // код
-
+  let t0 = new Date();
   await f(); // Не меняйте эту строку. Это вызов переданной функции с ожиданием выполнения.
-
-  // код
+  let t = new Date() - t0;
+  return (t<10)?"fast":(t<=500)?"normal":"slow";
 }
 
 module.exports = {
