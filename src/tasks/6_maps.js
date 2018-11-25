@@ -4,17 +4,22 @@
  * Порядок пар не важен. Буквы А и а считать одной буквой.
  */
 function countLetters(text) {
-  var tex = text.split("");
+  var te = [];
+  var texone = text.split(" ").join("");
+  var tex = texone.split("");
+  tex.forEach((element, index) => {
+      te.push(tex[index].toLowerCase())
+  });
   var map = new Map();
-  let key = 0;
-  for ( let i = 0; i < tex.length; i++) {
-    if (map.has( i, tex[i])) {
-      map.set(i, tex[i++]);
-    } else {
-      map.set( i, tex[i]);
+  te.forEach((element, index) => {
+    map.set(te[index]);
+  });
+  for (const key in te) {
+    if (key == map.keys()) {
+      map.set(key, 1);
     };
-    
-  }
+  };
+  
   return map;
 }
 
