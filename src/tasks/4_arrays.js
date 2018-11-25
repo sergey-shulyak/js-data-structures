@@ -64,10 +64,15 @@ function getCapitalizedNamesString(names) {
  * Функция должна вернуть массив таких же объектов, отсортированных по именам (в алфавитном порядке). НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
 function sortByName(users) {
-  for (keys in users) {
-
+  function compare(a,b) {
+    if (a.name < b.name)
+      return -1;
+    if (a.name > b.name)
+      return 1;
+    return 0;
   }
-  // mass = mas.sort(compareNumeric);
+  
+  users.sort(compare);
   return users;
 }
 
@@ -77,9 +82,14 @@ function sortByName(users) {
 
  */
 function getEligibleUserNames(users) {
-  // for ( let i = 0; i < users.length; i++) {
-  return users.price;
-  // }
+  const mass = [];
+  for (const key in users) {
+    if (users[key].age > 17) {
+    mass.push(users[key].name);
+    };
+  };
+  return mass;
+
 }
 
 /**
@@ -88,9 +98,10 @@ function getEligibleUserNames(users) {
  */
 function calculateCart(items) {
   var sum = 0;
-  for (keys in items) {
-    sum += items.price;
-  };
+  for (const key in items) {
+    let x = items[key].price * items[key].amount;
+    sum += x;
+  }
   return sum;
 }
 
@@ -101,7 +112,21 @@ function calculateCart(items) {
  * Функция должна вернуть true если у всех пользователей есть доступ на запись или false в противном случае
  * 11 10
  */
-function isAllPermittedToWrite(users) {}
+function isAllPermittedToWrite(users) {
+  var mas = [];
+  var res;
+  for (const key in users) {
+      mas.push((users[key].access).toString(2));
+    };
+    mas.forEach(element => {
+      if (element == 11) {
+        return res = true;
+      } else {
+        return res = false;
+      };
+    });
+    return res;
+  }
 
 module.exports = {
   trueLength,
