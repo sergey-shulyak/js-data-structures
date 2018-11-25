@@ -8,7 +8,7 @@ require("../polyfills/intl");
 function timeTravel(dateString) {
 	let newDate = new Date(dateString);
 	let newFormatter = new Intl.DateTimeFormat("ru", { weekday: "long" });
-	return newFormatter.format(newDate.setFullYear(date.getFullYear() - 10));
+	return newFormatter.format(newDate.setFullYear(newDate.getFullYear() - 10));
 }
 
 /**
