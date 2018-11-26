@@ -43,7 +43,9 @@ function interpolateString(text, value) {
  * Функция принимает массив чисел, которые представляют собой коды символов
  * Функция должна вернуть текст, составленный из кодов символов. [1076, 1091, 1073] => "дуб"
  */
-function fromCharCodes(charCodes) {}
+function fromCharCodes(charCodes) {
+  return charCodes.map(c => String.fromCharCode(c)).join('');
+}
 
 module.exports = {
   constructPlanetInfoString,
