@@ -5,7 +5,20 @@ require("../polyfills/intl");
  * Функция должна вернуть день недели (например "вторник"), который был ровно 10 лет назад
  * Используйте Intl: https://learn.javascript.ru/intl
  */
-function timeTravel(dateString) {}
+function timeTravel(dateString) {
+  let date = new Date(dateString);
+  let days = [
+    "воскресенье",
+    "понедельник",
+    "вторник",
+    "среда",
+    "четверг",
+    "пятница",
+    "суббота"
+  ];
+  date.setFullYear(date.getFullYear() - 10);
+  return days[date.getDay()];
+}
 
 /**
  * Функция принимает дату - число миллисекунд, прошедших с 1 января 1970 года
