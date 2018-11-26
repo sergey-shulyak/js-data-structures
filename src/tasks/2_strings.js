@@ -33,13 +33,7 @@ function interpolateString(text, value) {
  * Функция должна вернуть текст, составленный из кодов символов. [1076, 1091, 1073] => "дуб"
  */
 function fromCharCodes(charCodes) {
-  let result = "";
-
-  for (let i = 0; i < charCodes.length; i++) {
-    result += String.fromCharCode(charCodes[i]);
-  }
-
-  return result;
+  return String.fromCharCode(...charCodes);
 }
 
 module.exports = {

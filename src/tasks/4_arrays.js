@@ -14,27 +14,12 @@ function isExpressionValid(expression) {
   let brackets = [];
   let elements = expression.split("");
   elements.forEach(value => {
-    switch (value) {
-      case "(":
-      case "{":
-      case "[":
-        brackets.push(value);
-        break;
-      case ")":
-        if (brackets.pop() !== value) {
-          return false;
-        }
-        break;
-      case "}":
-        if (brackets.pop() !== value) {
-          return false;
-        }
-        break;
-      case "]":
-        if (brackets.pop() !== value) {
-          return false;
-        }
-        break;
+    if (value === "(" || value === "{" || value === "[") {
+      brackets.push(value);
+    } else if (value === ")" || value === "}" || value === "]") {
+      if (brackets.pop() !== value) {
+        return false;
+      }
     }
   });
   return brackets.length == 0;
@@ -45,10 +30,9 @@ function isExpressionValid(expression) {
  */
 
 function getCapitalizedNamesString(names) {
-  let str = [];
-  names.forEach(element => {
+  let str = names.map(element => {
     let loverElement = element.toLowerCase();
-    str.push(loverElement[0].toUpperCase() + loverElement.slice(1));
+    return loverElement[0].toUpperCase() + loverElement.slice(1);
   });
   return str.join(", ");
 }
@@ -59,11 +43,7 @@ function getCapitalizedNamesString(names) {
  */
 function sortByName(users) {
   return users.sort((a, b) => {
-    if (a["name"] > b["name"]) {
-      return 1;
-    } else {
-      return -1;
-    }
+    return a["name"] > b["name"] ? 1 : -1;
   });
 }
 /**
@@ -98,7 +78,6 @@ function calculateCart(items) {
  * 11 10
  */
 function isAllPermittedToWrite(users) {
-  //return users.every(value => value.access === 3 || value.access === 2);
   return users.every(user => user.access >> 1 === 1);
 }
 
