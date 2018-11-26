@@ -17,7 +17,17 @@ function timeTravel(dateString) {
  * Функция должна вернуть строку в формате "ср, 21 нояб. 2018 г., 18:48"
  * Используйте Intl: https://learn.javascript.ru/intl
  */
-function formatDate(millis) {}
+function formatDate(millis) {
+  const formatter = new Intl.DateTimeFormat("ru", {
+    weekday: "narrow",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric"
+  });
+  return formatter.format(new Date(millis)).toString();
+}
 
 /**
  * Функция принимает функцию для которой нужно провести бенчмарк
