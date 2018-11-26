@@ -5,15 +5,15 @@
  */
 function countLetters(text) {
   let map = new Map();
-  let textTemp = text.toLowerCase();
-  for (let i = 0; i < textTemp.length; i++) {
-    if (textTemp[i] == " ") {
+  let tex = text.toLowerCase();
+  for (let i = 0; i < tex.length; i++) {
+    if (tex[i] == " ") {
       continue;
     }
-    if (map.has(textTemp[i])) {
-      map.set(textTemp[i], map.get(textTemp[i]) + 1);
+    if (map.has(tex[i])) {
+      map.set(tex[i], map.get(tex[i]) + 1);
     } else {
-      map.set(textTemp[i], 1);
+      map.set(tex[i], 1);
     }
   }
   return map;
@@ -24,15 +24,15 @@ function countLetters(text) {
  * Функция должна вернуть массив строк вида "1 Петя: 25 балл(ов)" где 25 - сумма оценок из массива
  */
 function prettyPrintEntries(userMarksMap) {
-  let temp = [];
+  let mas = [];
   for (let item of userMarksMap.entries()) {
-    let tempStr = "";
-    tempStr += item[0].id + " " + item[0].name + ": ";
-    tempStr += item[1].reduce((a, b) => a + b) + " балл(ов)";
-    console.log(tempStr);
-    temp.push(tempStr);
+    let masStr = "";
+    masStr += item[0].id + " " + item[0].name + ": ";
+    masStr += item[1].reduce((a, b) => a + b) + " балл(ов)";
+    console.log(masStr);
+    mas.push(masStr);
   }
-  return temp;
+  return mas;
 }
 
 module.exports = {
