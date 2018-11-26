@@ -31,6 +31,12 @@ describe("Tasks for arrays", () => {
 
       expect(tasks.isExpressionValid(expression)).toBe(false);
     });
+
+    it("return false for invalid expression", () => {
+      const expression = "let obj = {{{{{{{{{";
+
+      expect(tasks.isExpressionValid(expression)).toBe(false);
+    });
   });
 
   describe("getCapitalizedNamesString", () => {
