@@ -45,10 +45,10 @@ function isExpressionValid(expression) {
  * Функция должна вернуть строку с нормализованными именами, разделёнными запятой и пробелом: "Петя, Артём, Катя, Маша"
  */
 function getCapitalizedNamesString(names) {
-  let res = names.map(function(item, i, arr) {
-    return item[0].toUpperCase() + item.substr(1).toLowerCase();
-  });
-  return res.join(", ");
+  let rightNames = names.map(
+    el => el[0].toUpperCase() + el.substring(1).toLowerCase()
+  );
+  return rightNames.join(", ");
 }
 
 /**
