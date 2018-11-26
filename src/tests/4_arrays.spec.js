@@ -31,6 +31,12 @@ describe("Tasks for arrays", () => {
 
       expect(tasks.isExpressionValid(expression)).toBe(false);
     });
+    it("return false for only closing expression", () => {
+      const expression =
+        "let obj =) numArray: [ (1 + 2) * 5 + (42.toString() }";
+
+      expect(tasks.isExpressionValid(expression)).toBe(false);
+    });
   });
 
   describe("getCapitalizedNamesString", () => {
