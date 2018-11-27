@@ -11,18 +11,26 @@ function trueLength(array) {
  * Функция должна вернуть true если все скобки закрыты в правильном порядке или false в противном случае
  */
 function isExpressionValid(expression) {
-  let brackets = [];
-  let elements = expression.split("");
-  elements.forEach(value => {
-    if (value === "(" || value === "{" || value === "[") {
-      brackets.push(value);
-    } else if (value === ")" || value === "}" || value === "]") {
-      if (brackets.pop() !== value) {
+  const stack = [];
+  const openBrackets = ["(", "{", "["];
+  const closeBrackets = [")", "}", "]"];
+  const matchetBrekets = {
+    "(": ")",
+    "{": "}",
+    "[": "]"
+  };
+
+  let chars = expression.split("");
+  chars.forEach(char => {
+    if (openBrackets.includes(char)) {
+      stack.push(char);
+    } else if (closeBrackets.includes(char)) {
+      if (matchetBrekets[stack.pop()] !== char) {
         return false;
       }
     }
   });
-  return brackets.length == 0;
+  return stack.length == 0;
 }
 /**
  * Функция принимает массив имен. Имена могут быть в любом виде: пЕтя, Артём, катя, МаШа
