@@ -25,13 +25,7 @@ function isExpressionValid(expression) {
     }
   }
 
-  let indexClose = Math.min(
-    expression.indexOf("}"),
-    expression.indexOf(")"),
-    expression.indexOf("]")
-  );
-
-  for (let i = indexClose; i < expression.length; i++) {
+  for (let i = 0; i < expression.length; i++) {
     if (keys[keys.length - 1] === "{" && expression[i] === "}") {
       keys.pop();
     }
@@ -65,9 +59,7 @@ function getCapitalizedNamesString(names) {
  * Функция должна вернуть массив таких же объектов, отсортированных по именам (в алфавитном порядке). НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
 function sortByName(users) {
-  users.sort((firstObj, secondObj) => {
-    return firstObj.name > secondObj.name ? 1 : -1;
-  });
+  users.sort((firstObj, secondObj) => firstObj.name > secondObj.name ? 1 : -1);
 
   return users;
 }
@@ -94,7 +86,7 @@ function getEligibleUserNames(users) {
  * Функция должна вернуть сумму всех покупок. НЕ ИСПОЛЬЗУЙТЕ ЦИКЛЫ.
  */
 function calculateCart(items) {
-  return items.reduce((summ, item) => (summ += item.amount * item.price), 0);
+  return items.reduce((summ, item) => summ + item.amount * item.price, 0);
 }
 
 /**

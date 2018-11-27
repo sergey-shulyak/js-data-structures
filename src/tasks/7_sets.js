@@ -3,14 +3,7 @@
  * Функция должна вернуть массив чисел без дубликатов
  */
 function uniqueValues(numbers) {
-  let set = new Set(numbers);
-  let resArr = [];
-
-  set.forEach(item => {
-    resArr.push(item);
-  });
-
-  return resArr;
+  return new Array(...new Set(numbers));
 }
 
 /**

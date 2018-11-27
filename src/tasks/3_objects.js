@@ -5,7 +5,6 @@
 function renameProperty(obj, propName, newName) {
   obj[newName] = obj[propName];
   delete obj[propName];
-  return obj;
 }
 
 /**
@@ -21,7 +20,7 @@ function countKeys(obj) {
  * Функция должна вернуть true если в объекте нет свойств или false в противном случае
  */
 function isEmpty(obj) {
-  return Object.keys(obj).length > 0 ? false : true;
+  return !Object.keys(obj).length;
 }
 
 /**
