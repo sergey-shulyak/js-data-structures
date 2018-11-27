@@ -1,12 +1,12 @@
 {
   "name": "js-data-structures",
   "version": "1.0.0",
-  "description": "",
+  "description": "Задачи для занятия по типам и структурам данных в JavaScript",
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "test:single": "jest --watch -t",
-    "test:ui": "majestic"
+    "test:ui": "majestic",
+    "test:single": "jest --watch -t"
   },
   "repository": {
     "type": "git",
